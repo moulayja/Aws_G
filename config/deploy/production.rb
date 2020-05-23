@@ -2,7 +2,7 @@ set :branch, 'master'
 
 # set :stage, :development
 
-# set :deploy_to, '/home/deployer/apps/Space_Bar_Smasher_App_Game'
+set :deploy_to, '/home/deployer/apps/Space_Bar_Smasher_App_Game'
 # ask(:server_ip, 'What is server ip?', echo: true)
 
 # ask(:server_ip, 'What is server ip?', echo: true)
