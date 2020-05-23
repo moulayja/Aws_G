@@ -1,6 +1,6 @@
 function get_scoreboard() {
 
-	return fetch("http://localhost:3000/scoreboards")
+	return fetch("http://3.133.98.62:8080/scoreboards")
 	.then(response => response.json())
 
 }
