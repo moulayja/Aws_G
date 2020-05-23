@@ -12,7 +12,7 @@ function start_game() {
 
 function get_scoreboard() {
 
-	return fetch("http://localhost:3000/scoreboards")
+	return fetch("http://3.133.98.62:8080/scoreboards")
 	.then(response => response.json())
 
 }
@@ -335,7 +335,7 @@ function submit_form_listener(event) {
 	// } else if (name.includes('ali') || name.includes('ALI') || name.includes('Ali') || name.includes('aLi') || name.includes('alI') || name.includes('AlI') || name.includes('ALi') || name.includes('aLI')) {
 	// 	alert("Nice try, Ali...but I don't trust you.")
 	} else {
-	fetch("http://localhost:3000/players", {
+	fetch("http://3.133.98.62:8080/players", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
@@ -347,7 +347,7 @@ function submit_form_listener(event) {
 		})
 		.then(response => response.json())
 		.then((player_object) => {
-			fetch("http://localhost:3000/scoreboards", {
+			fetch("http://3.133.98.62:8080/scoreboards", {
 					method: "POST",
 					headers: {
 						"content-type": "application/json",
@@ -364,7 +364,7 @@ function submit_form_listener(event) {
 					get_scoreboard()
 					.then((response_obj) => {
 						if (response_obj.data.length < 21) {
-							(fetch("http://localhost:3000/scoreboards")
+							(fetch("http://3.133.98.62:8080/scoreboards")
 								.then(response => response.json())
 								.then(new_scoreboard => {
 
@@ -379,10 +379,10 @@ function submit_form_listener(event) {
 							)
 						} else {
 							for (let i = 20; i < response_obj.data.length; i++) {
-								fetch(`http://localhost:3000/scoreboards/${response_obj.data[i].id}`, {
+								fetch(`http://3.133.98.62:8080/scoreboards/${response_obj.data[i].id}`, {
 										method: "DELETE"
 									})
-									.then(fetch("http://localhost:3000/scoreboards")
+									.then(fetch("http://3.133.98.62:8080/scoreboards")
 										.then(response => response.json())
 										.then(new_scoreboard => {
 
@@ -430,7 +430,7 @@ function create_scoreboard(MAIN_WRAPPER, created_player) {
 
 	scoreboard_table.append(scoreboard_table_top_row)
 
-	fetch("http://localhost:3000/scoreboards")
+	fetch("http://3.133.98.62:8080/scoreboards")
 		.then(response => response.json())
 		.then((new_scoreboards) => {
 			let i = 1
