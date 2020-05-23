@@ -1,4 +1,4 @@
-set :branch, 'deploy'
+set :branch, 'master'
 
 # set :stage, :development
 
